@@ -3,21 +3,22 @@ import './TitleCards.css'
 import { useRef } from 'react'
 import cards_data from '../../assets/cards/Cards_data'
 
-function TitleCards() {
-  const cardsRef =useRef();
+function TitleCards({title,}) {
 
-const handleWheel=(event)=>{
+  const cardsRef =useRef();                                 //home page scroll bar setting start
+
+  const handleWheel=(event)=>{
   event.preventDefault();
   cardsRef.current.scrollLeft+=event.deltaY;
 }
 
-useEffect(()=>{
+  useEffect(()=>{
   cardsRef.current.addEventListener('wheel',handleWheel);
-},[])
+  },[])                                                       //home page scroll bar setting End
 
   return (
     <div className='title-cards'>
-        <h2>Popular on Netflix</h2>
+        <h2>{title? title:"Popular on Netflix"}</h2>
 
         <div className="card-list" ref={cardsRef}>
             {cards_data.map((card,index)=>{
