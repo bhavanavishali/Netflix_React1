@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './TitleCards.css';
+import { Link } from 'react-router-dom';
 
 function TitleCards({ title ,category}) {
   // State to store movie data from the API
@@ -64,13 +65,13 @@ function TitleCards({ title ,category}) {
       <div className="card-list" ref={cardsRef}>
         {movies.length ? (
           movies.map((movie, index) => (
-            <div className="card" key={index}>
+            <Link to={`/player/${movie.id}`} className="card" key={index}>
               <img 
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} 
                 alt={movie.original_title} 
               />
               <p>{movie.original_title}</p>
-            </div>
+            </Link>
           ))
         ) : (
           <p>Loading movies...</p>
