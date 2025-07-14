@@ -87,6 +87,14 @@ function Login() {
             required
           />
 
+            <div className="form-help">
+            <div className="pass">
+              
+              <label>Email:"user@gmail.com"</label>
+            </div>
+            
+          </div>
+
           <input
             type="password"
             placeholder='Password'
@@ -94,6 +102,13 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+           <div className="form-help">
+            <div className="pass">
+              
+              <label>password:"123456"</label>
+            </div>
+            
+          </div>
 
           <button type="submit">{signState}</button>
 
